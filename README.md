@@ -32,7 +32,7 @@ I am using CouchDB 2.1.1 with Fauxton. Database is listening on a standard defau
 
 ### App configuration 
 
-Setup NGINX with gunicorn proxy. Fire up app @ http://localhost:8080/. If all setup correctly you should see a app login page. 
+Setup NGINX with gunicorn proxy. Fire up app @ http://localhost:8080/. If all setup correctly you should see the app login page. 
 
 ### App login
 
