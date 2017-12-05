@@ -47,7 +47,7 @@ Use admin@yahoo.com / password to log into the app
 
 ### Gotchas
 
-I had to put together this app in less than a day (non-paid :)) and therefore I have taken some shortcuts. As it stands, User is validated against a local array. Additionally, decoded JWT token is not doing any validation against the payload yet.
+I had to put together this app in less than a day (non-paid :)) and therefore I have taken some shortcuts. As it stands, User is validated against a local array. Additionally, decoded JWT token is not doing any validation against the payload yet. Take this as a POC for demonstrating how to hook things up with VueJs, Falcon & CouchDB.
 
 ### Contact
 
