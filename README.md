@@ -8,7 +8,23 @@ This is a simple VueJs app with Python Falcon API & CouchDB persistent store. RE
 
 ### NGINX Setup
 
-App sits behind NGINX with gunicorn proxied to serve the API endpoints.
+App sits behind NGINX with gunicorn proxied to serve the API endpoints. Below is a sample proxy setting. Gunicorn is started on port 8000.
+
+```shell
+location / {
+    root   /users/ritesh.patel/websites/vrtxapp;
+    index  index.html index.htm;
+}
+
+location /api/ {
+    proxy_pass http://localhost:8000/;
+    proxy_http_version 1.1;
+    proxy_set_header Upgrade $http_upgrade;
+    proxy_set_header Connection 'upgrade';
+    proxy_set_header Host $host;
+    proxy_cache_bypass $http_upgrade;
+}
+```
 
 ### Tools Used
 
