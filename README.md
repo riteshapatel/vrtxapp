@@ -26,6 +26,18 @@ location /api/ {
 }
 ```
 
+### CouchDB Setup
+
+I am using CouchDB 2.1.1 with Fauxton. Database is listening on a standard default port 5984. Install CouchDB locally and create a database ```vrtxdb```. 
+
+### App configuration 
+
+Setup NGINX with gunicorn proxy. Fire up app @ http://localhost:8080/. If all setup correctly you should see a app login page. 
+
+### App login
+
+Use admin@yahoo.com / password to log into the app
+
 ### Tools Used
 
 - VueJs
