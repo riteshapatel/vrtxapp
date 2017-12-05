@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>I am a FalconApp relaxing on a CouchDB</title>
+    <meta name="author" content="Ritesh Patel @ vrtx sample app" />
+
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+    <style>
+    body {
+        font-family: 'Raleway', sans-serif;
+    }
+    /* Style for our header texts
+    * --------------------------------------- */
+    h1{
+        font-size: 5em;
+        font-family: arial,helvetica;
+        color: #fff;
+        margin:0;
+    }
+    .intro p{
+        color: #fff;
+    }
+
+    /* Centered texts in each section
+    * --------------------------------------- */
+    .section{
+        text-align:center;
+    }
+
+    .modal-header {
+        color: white;
+        background-color: #FC9F28;
+    }
+    /* Bottom menu
+    * --------------------------------------- */
+    #infoMenu li a {
+        color: #fff;
+    }
+
+    </style>
+
+    <!--[if IE]>
+        <script type="text/javascript">
+             var console = { log: function() {} };
+        </script>
+    <![endif]-->
+
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>
+    <script src="https://use.fontawesome.com/2fc2523a5b.js"></script>
+    <script src="external/bootstrap.min.js"></script>
+    <link href="css/signin.css" rel="stylesheet">
+    <script src="https://unpkg.com/vue"></script>
+</head>
+<body>
+        
+        <div class="container" id="vrtxapp">
+            <form class="form-signin" v-if="!hasToken">
+            <h2 class="form-signin-heading">Vrtx Login</h2>
+            <label for="inputEmail" class="sr-only">Email</label>
+            <input type="email" id="inputEmail" v-model="email" class="form-control" placeholder="Email" required autofocus>
+            <label for="inputPassword" class="sr-only">Password</label>
+            <input type="password" id="inputPassword" v-model="password" class="form-control" placeholder="Password" required>
+            <div class="checkbox">
+                <label>
+                <input type="checkbox" value="remember-me"> Remember me
+                </label>
+            </div>
+            <button class="btn btn-lg btn-primary btn-block" type="button" v-on:click="login">Sign in</button>
+            </form>  
+            <div class="container" v-if="hasToken">
+                <div class="text-right">{{email}}</div>
+                <h4 class="text-left" style="padding-left:15px">Instrument Listing</h4>
+                <table class="table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <th class="info" width="20"></th>
+                            <th class="info">Instrument Name</th>
+                            <th class="info">Price</th>
+                        </tr>
+                    </thead>
+                    <tbody v-html="instruments">
+                    </tbody>
+                </table>
+                <button class="btn btn-danger fa fa-trash" v-on:click="deleteInstrument" style="display:none">&nbsp;DELETE</button>
+                <hr style="height:2px;background-color:#404040"/>
+                <form class="form-inline">
+                    <h4>Add New Instrument</h4>
+                    <div class="form-group">
+                        <label for="instrumentName">Instrument Name</label>
+                        <input type="text" class="form-control" id="instrumentName" placeholder="Instrument name" v-model="name">
+                    </div>
+                    <div class="form-group">
+                            <label for="instrumentPrice">Price</label>
+                            <input type="text" class="form-control" id="instrumentPrice" placeholder="Instrument price" v-model="price">
+                        </div>                    
+                
+                    <button class="btn btn-primary btn-success fa fa-plus" v-on:click="addInstrument" type="button">&nbsp;Add Instrument</button>
+                </form>
+                <br /><br />
+                <button class="btn btn-primary btn-info fa fa-sign-out" v-on:click="logout">&nbsp;Sign Out</button>
+            </div>
+        </div> <!-- /container -->    
+<script src="external/js-cookie.js"></script>
+<script src="js/login.js"></script>
+</body>
+</html>
