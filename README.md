@@ -6,6 +6,14 @@ Author: Ritesh Patel | Last Updated: Dec 4, 2017
 
 This is a simple VueJs app with Python Falcon API & CouchDB persistent store. REST api is designed with Falcon. It uses a JWT token based authentication model. User logs into the app and adds / lists lab instruments from CouchDB.
 
+### gunicorn 
+
+Use the command below to turn on gunicorn in the api directory
+
+```
+gunicorn -b 0.0.0.0:port app:app --reload
+```
+
 ### NGINX Setup
 
 App sits behind NGINX with gunicorn proxied to serve the API endpoints. Below is a sample proxy setting. Gunicorn is started on port 8000.
